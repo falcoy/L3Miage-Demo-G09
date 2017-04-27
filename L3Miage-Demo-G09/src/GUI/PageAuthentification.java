@@ -24,22 +24,6 @@ public class PageAuthentification {
 	private JPasswordField passwordField;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PageAuthentification window = new PageAuthentification();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public PageAuthentification() {
@@ -88,5 +72,7 @@ public class PageAuthentification {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(153, 114, 114, 18);
 		frame.getContentPane().add(passwordField);
+		
+		frame.setVisible(true);
 	}
 }

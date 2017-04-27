@@ -15,22 +15,6 @@ public class AffichageParticipants {
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AffichageParticipants window = new AffichageParticipants();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public AffichageParticipants() {
@@ -81,6 +65,8 @@ public class AffichageParticipants {
 		JButton btn_Afficher = new JButton("Afficher");
 		btn_Afficher.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Afficher);
+		
+		frame.setVisible(true);
 	}
 
 }

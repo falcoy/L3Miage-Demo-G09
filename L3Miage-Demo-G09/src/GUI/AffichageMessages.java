@@ -1,37 +1,17 @@
 package GUI;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.JTable;
-import javax.swing.JPanel;
 
 public class AffichageMessages {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AffichageMessages window = new AffichageMessages();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -88,5 +68,7 @@ public class AffichageMessages {
 		JButton btn_Afficher = new JButton("Afficher");
 		btn_Afficher.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Afficher);
+		
+		frame.setVisible(true);
 	}
 }

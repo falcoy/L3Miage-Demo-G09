@@ -5,6 +5,9 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import Module_Securite.Authentification;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -12,28 +15,14 @@ import java.awt.event.ActionEvent;
 public class Menu {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Menu window = new Menu();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the application.
 	 */
 	public Menu() {
 		initialize();
+		//fermer GUI à distance
+		//ouvrir interface utilisateur à distance
 	}
 
 	/**
@@ -69,6 +58,8 @@ public class Menu {
 		JButton btn_Deconnexion = new JButton("Deconnexion");
 		btn_Deconnexion.setBounds(201, 320, 125, 35);
 		frame.getContentPane().add(btn_Deconnexion);
+		
+		frame.setVisible(true);
 	}
 
 }
