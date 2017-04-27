@@ -4,6 +4,8 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu {
 
@@ -33,22 +35,52 @@ public class Menu {
 		frame.getContentPane().add(lbl_MyEwine);
 
 		JButton btn_CreationDunEvenement = new JButton("Creation d'un Evenement");
+		btn_CreationDunEvenement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreationEvenement creationEvenement = new CreationEvenement();
+				frame.dispose();
+			}
+		});
 		btn_CreationDunEvenement.setBounds(26, 58, 300, 50);
 		frame.getContentPane().add(btn_CreationDunEvenement);
 
 		JButton btn_RechercheDEvenement = new JButton("Recherche d'Evenement");
+		btn_RechercheDEvenement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RechercheEvenement rechercheEvenement = new RechercheEvenement();
+				frame.dispose();
+			}
+		});
 		btn_RechercheDEvenement.setBounds(26, 120, 300, 50);
 		frame.getContentPane().add(btn_RechercheDEvenement);
 
 		JButton btn_ListeDesContacts = new JButton("Liste des contacts");
+		btn_ListeDesContacts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AffichageContacts afficherContacts = new AffichageContacts();
+				frame.dispose();
+			}
+		});
 		btn_ListeDesContacts.setBounds(26, 182, 300, 50);
 		frame.getContentPane().add(btn_ListeDesContacts);
 
 		JButton btn_ConsulterMaMessagerie = new JButton("Consulter ma messagerie");
+		btn_ConsulterMaMessagerie.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AffichageMessages affichageMessages = new AffichageMessages();
+				frame.dispose();
+			}
+		});
 		btn_ConsulterMaMessagerie.setBounds(26, 244, 300, 50);
 		frame.getContentPane().add(btn_ConsulterMaMessagerie);
 
 		JButton btn_Deconnexion = new JButton("Deconnexion");
+		btn_Deconnexion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PageAuthentification pageAuth = new PageAuthentification();
+				frame.dispose();
+			}
+		});
 		btn_Deconnexion.setBounds(201, 320, 125, 35);
 		frame.getContentPane().add(btn_Deconnexion);
 
