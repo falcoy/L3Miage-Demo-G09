@@ -1,17 +1,12 @@
 package GUI;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.border.CompoundBorder;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 public class CreationEvenement {

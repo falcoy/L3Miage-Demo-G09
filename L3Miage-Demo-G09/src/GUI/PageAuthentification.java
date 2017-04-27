@@ -1,17 +1,11 @@
 package GUI;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
-
 import Module_Securite.Authentification;
 import Module_Securite.Crypteur;
 
 import javax.swing.JLabel;
-import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.JButton;

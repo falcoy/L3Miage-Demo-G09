@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
