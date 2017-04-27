@@ -22,22 +22,6 @@ public class CreationEvenement {
 	private JTextField textField_Lieu;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CreationEvenement window = new CreationEvenement();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public CreationEvenement() {
@@ -114,5 +98,7 @@ public class CreationEvenement {
 		JButton btn_Creer = new JButton("Créer");
 		btn_Creer.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Creer);
+		
+		frame.setVisible(true);
 	}
 }

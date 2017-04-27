@@ -16,22 +16,6 @@ public class ModificationContributionService {
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ModificationContributionService window = new ModificationContributionService();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public ModificationContributionService() {
@@ -103,6 +87,8 @@ public class ModificationContributionService {
 		JButton btn_Supprimer = new JButton("Supprimer");
 		btn_Supprimer.setBounds(196, 281, 100, 30);
 		frame.getContentPane().add(btn_Supprimer);
+		
+		frame.setVisible(true);
 	}
 
 }

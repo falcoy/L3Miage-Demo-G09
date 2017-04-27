@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -13,22 +12,6 @@ import javax.swing.UIManager;
 public class AffichageContacts {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AffichageContacts window = new AffichageContacts();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -81,6 +64,8 @@ public class AffichageContacts {
 		JButton btn_EcrireMessage = new JButton("Nouveau message");
 		btn_EcrireMessage.setBounds(12, 281, 314, 30);
 		frame.getContentPane().add(btn_EcrireMessage);
+		
+		frame.setVisible(true);
 	}
 
 }

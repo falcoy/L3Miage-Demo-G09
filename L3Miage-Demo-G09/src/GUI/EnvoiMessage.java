@@ -17,22 +17,6 @@ public class EnvoiMessage {
 	private JTextField textField;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EnvoiMessage window = new EnvoiMessage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public EnvoiMessage() {
@@ -99,5 +83,7 @@ public class EnvoiMessage {
 		lbl_Message.setFont(new Font("Dialog", Font.BOLD, 14));
 		lbl_Message.setBounds(20, 146, 88, 14);
 		frame.getContentPane().add(lbl_Message);
+		
+		frame.setVisible(true);
 	}
 }

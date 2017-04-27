@@ -13,22 +13,6 @@ public class ParticiperEvenement {
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ParticiperEvenement window = new ParticiperEvenement();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public ParticiperEvenement() {
@@ -73,6 +57,8 @@ public class ParticiperEvenement {
 		JButton btn_Service = new JButton("Service");
 		btn_Service.setBounds(93, 222, 150, 50);
 		frame.getContentPane().add(btn_Service);
+		
+		frame.setVisible(true);
 	}
 
 }

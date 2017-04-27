@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -14,22 +13,6 @@ import javax.swing.UIManager;
 public class AffichageContributionService {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AffichageContributionService window = new AffichageContributionService();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -104,6 +87,8 @@ public class AffichageContributionService {
 		
 		JButton btn_Supprimer = new JButton("Supprimer");
 		btn_Supprimer.setBounds(196, 281, 100, 30);
-		frame.getContentPane().add(btn_Supprimer);}
-
+		frame.getContentPane().add(btn_Supprimer);
+		
+		frame.setVisible(true);
+		}
 }

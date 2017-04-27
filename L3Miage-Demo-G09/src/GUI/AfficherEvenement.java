@@ -18,22 +18,6 @@ public class AfficherEvenement {
 	private JTable table_Participants;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AfficherEvenement window = new AfficherEvenement();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public AfficherEvenement() {
@@ -123,5 +107,7 @@ public class AfficherEvenement {
 		table_Participants.setBorder(UIManager.getBorder("TextField.border"));
 		table_Participants.setBounds(121, 281, 175, 100);
 		frame.getContentPane().add(table_Participants);
+		
+		frame.setVisible(true);
 	}
 }

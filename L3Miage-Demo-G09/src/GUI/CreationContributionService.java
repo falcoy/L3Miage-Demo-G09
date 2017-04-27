@@ -16,22 +16,6 @@ public class CreationContributionService {
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CreationContributionService window = new CreationContributionService();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public CreationContributionService() {
@@ -98,6 +82,8 @@ public class CreationContributionService {
 		JButton btn_Valider = new JButton("Valider");
 		btn_Valider.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Valider);
+		
+		frame.setVisible(true);
 	}
 
 }

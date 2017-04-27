@@ -1,6 +1,4 @@
 package GUI;
-
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -14,23 +12,6 @@ import javax.swing.UIManager;
 public class CreationContributionBien {
 
 	private JFrame frame;
-	private JTextField textField_Unite;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CreationContributionBien window = new CreationContributionBien();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
@@ -117,6 +98,8 @@ public class CreationContributionBien {
 		JButton btn_Valider = new JButton("Valider");
 		btn_Valider.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Valider);
+		
+		frame.setVisible(true);
 	}
 
 }

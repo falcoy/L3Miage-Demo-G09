@@ -15,22 +15,6 @@ public class RechercheEvenement {
 	private JTextField textField_ChampRecherche;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RechercheEvenement window = new RechercheEvenement();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public RechercheEvenement() {
@@ -79,5 +63,7 @@ public class RechercheEvenement {
 		JButton btn_Modifier = new JButton("Modifier");
 		btn_Modifier.setBounds(192, 265, 125, 35);
 		frame.getContentPane().add(btn_Modifier);
+		
+		frame.setVisible(true);
 	}
 }
