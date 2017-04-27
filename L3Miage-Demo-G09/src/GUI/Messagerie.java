@@ -5,18 +5,20 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.JTable;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class AffichageContacts {
+public class Messagerie {
 
 	private JFrame frame;
 
 	/**
 	 * Create the application.
 	 */
-	public AffichageContacts() {
+	public Messagerie() {
 		initialize();
 	}
 
@@ -28,44 +30,60 @@ public class AffichageContacts {
 		frame.setBounds(100, 100, 350, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JButton btn_Retour = new JButton("Retour");
+		btn_Retour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu menu = new Menu();
+				frame.dispose();
+			}
+		});
 		btn_Retour.setBounds(203, 323, 125, 35);
 		frame.getContentPane().add(btn_Retour);
-		
+
 		JLabel lbl_MyEwine = new JLabel("My eWine");
 		lbl_MyEwine.setFont(new Font("Dialog", Font.BOLD, 16));
 		lbl_MyEwine.setBounds(133, 12, 80, 26);
 		frame.getContentPane().add(lbl_MyEwine);
-		
-		JLabel lbl_AffichageContacts = new JLabel("Affichage des contacts");
-		lbl_AffichageContacts.setBounds(99, 50, 144, 14);
-		frame.getContentPane().add(lbl_AffichageContacts);
-		
+
+		JLabel lbl_MesMessages = new JLabel("Mes messages");
+		lbl_MesMessages.setBounds(126, 50, 97, 14);
+		frame.getContentPane().add(lbl_MesMessages);
+
 		JLabel lbl_Filtrer = new JLabel("Filtrer");
 		lbl_Filtrer.setFont(new Font("Dialog", Font.BOLD, 14));
 		lbl_Filtrer.setBounds(12, 96, 61, 14);
 		frame.getContentPane().add(lbl_Filtrer);
-		
+
 		JTextField textField_Filtrer = new JTextField();
 		textField_Filtrer.setBounds(71, 95, 150, 18);
 		frame.getContentPane().add(textField_Filtrer);
 		textField_Filtrer.setColumns(10);
-		
+
 		JButton btn_Filtrer = new JButton("Filtrer");
 		btn_Filtrer.setBounds(250, 95, 78, 18);
 		frame.getContentPane().add(btn_Filtrer);
-		
-		JTable table_Contacts = new JTable();
-		table_Contacts.setBorder(UIManager.getBorder("TextField.border"));
-		table_Contacts.setBounds(12, 122, 316, 135);
-		frame.getContentPane().add(table_Contacts);
 
-		JButton btn_EcrireMessage = new JButton("Nouveau message");
-		btn_EcrireMessage.setBounds(12, 281, 314, 30);
-		frame.getContentPane().add(btn_EcrireMessage);
-		
+		JTable table_Messages = new JTable();
+		table_Messages.setBorder(UIManager.getBorder("TextField.border"));
+		table_Messages.setBounds(12, 122, 316, 147);
+		frame.getContentPane().add(table_Messages);
+
+		JButton btn_NouveauMessage = new JButton("Nouveau");
+		btn_NouveauMessage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EnvoiMessage envoiMessage = new EnvoiMessage();
+				frame.dispose();
+			}
+		});
+		btn_NouveauMessage.setBounds(12, 281, 314, 30);
+		frame.getContentPane().add(btn_NouveauMessage);
+
+		JButton btn_Afficher = new JButton("Afficher");
+		btn_Afficher.setEnabled(false);
+		btn_Afficher.setBounds(12, 323, 125, 35);
+		frame.getContentPane().add(btn_Afficher);
+
 		frame.setVisible(true);
 	}
-
 }

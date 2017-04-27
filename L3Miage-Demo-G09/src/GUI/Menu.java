@@ -54,24 +54,14 @@ public class Menu {
 		btn_RechercheDEvenement.setBounds(26, 120, 300, 50);
 		frame.getContentPane().add(btn_RechercheDEvenement);
 
-		JButton btn_ListeDesContacts = new JButton("Liste des contacts");
-		btn_ListeDesContacts.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AffichageContacts afficherContacts = new AffichageContacts();
-				frame.dispose();
-			}
-		});
-		btn_ListeDesContacts.setBounds(26, 182, 300, 50);
-		frame.getContentPane().add(btn_ListeDesContacts);
-
 		JButton btn_ConsulterMaMessagerie = new JButton("Consulter ma messagerie");
 		btn_ConsulterMaMessagerie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AffichageMessages affichageMessages = new AffichageMessages();
+				Messagerie affichageMessages = new Messagerie();
 				frame.dispose();
 			}
 		});
-		btn_ConsulterMaMessagerie.setBounds(26, 244, 300, 50);
+		btn_ConsulterMaMessagerie.setBounds(26, 182, 300, 50);
 		frame.getContentPane().add(btn_ConsulterMaMessagerie);
 
 		JButton btn_Deconnexion = new JButton("Deconnexion");

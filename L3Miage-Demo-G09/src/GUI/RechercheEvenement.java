@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RechercheEvenement {
 
@@ -30,6 +32,12 @@ public class RechercheEvenement {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btn_Retour = new JButton("Retour");
+		btn_Retour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu menu = new Menu();
+				frame.dispose();
+			}
+		});
 		btn_Retour.setBounds(112, 320, 125, 35);
 		frame.getContentPane().add(btn_Retour);
 		
@@ -56,10 +64,12 @@ public class RechercheEvenement {
 		frame.getContentPane().add(scrollPane_ResultatRecherche);
 		
 		JButton btn_Afficher = new JButton("Afficher");
+		btn_Afficher.setEnabled(false);
 		btn_Afficher.setBounds(22, 265, 125, 35);
 		frame.getContentPane().add(btn_Afficher);
 		
 		JButton btn_Modifier = new JButton("Modifier");
+		btn_Modifier.setEnabled(false);
 		btn_Modifier.setBounds(192, 265, 125, 35);
 		frame.getContentPane().add(btn_Modifier);
 		

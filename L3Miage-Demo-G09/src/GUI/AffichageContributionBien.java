@@ -13,6 +13,7 @@ import javax.swing.UIManager;
 public class AffichageContributionBien {
 
 	private JFrame frame;
+	private JTextField textField_Createur;
 
 	/**
 	 * Create the application.
@@ -100,14 +101,21 @@ public class AffichageContributionBien {
 		lbl_Description.setFont(new Font("Dialog", Font.BOLD, 14));
 		lbl_Description.setBounds(26, 171, 88, 14);
 		frame.getContentPane().add(lbl_Description);
-
-		JButton btn_Valider = new JButton("Valider");
-		btn_Valider.setBounds(26, 281, 100, 30);
-		frame.getContentPane().add(btn_Valider);
 		
 		JButton btn_Supprimer = new JButton("Supprimer");
 		btn_Supprimer.setBounds(196, 281, 100, 30);
 		frame.getContentPane().add(btn_Supprimer);
+		
+		JLabel lbl_Createur = new JLabel("Createur");
+		lbl_Createur.setFont(new Font("Dialog", Font.BOLD, 14));
+		lbl_Createur.setBounds(12, 285, 73, 14);
+		frame.getContentPane().add(lbl_Createur);
+		
+		textField_Createur = new JTextField();
+		textField_Createur.setEditable(false);
+		textField_Createur.setColumns(10);
+		textField_Createur.setBounds(83, 284, 90, 18);
+		frame.getContentPane().add(textField_Createur);
 		
 		frame.setVisible(true);
 		}

@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.JTable;
 
-public class AfficherEvenement {
+public class AffichageEvenement {
 
 	private JFrame frame;
 	private JTable table_Participants;
@@ -19,7 +19,7 @@ public class AfficherEvenement {
 	/**
 	 * Create the application.
 	 */
-	public AfficherEvenement() {
+	public AffichageEvenement() {
 		initialize();
 	}
 

@@ -58,14 +58,19 @@ public class AffichageParticipants {
 		
 		JTable table_Participants = new JTable();
 		table_Participants.setBorder(UIManager.getBorder("TextField.border"));
-		table_Participants.setBounds(12, 122, 316, 189);
+		table_Participants.setBounds(12, 122, 316, 142);
 		frame.getContentPane().add(table_Participants);
 		
-		JButton btn_Afficher = new JButton("Afficher");
-		btn_Afficher.setBounds(12, 323, 125, 35);
-		frame.getContentPane().add(btn_Afficher);
+		JButton btn_ModifierParticipation = new JButton("Modifier");
+		btn_ModifierParticipation.setEnabled(false);
+		btn_ModifierParticipation.setBounds(12, 323, 125, 35);
+		frame.getContentPane().add(btn_ModifierParticipation);
+		
+		JButton btn_AfficherParticipation = new JButton("Participation");
+		btn_AfficherParticipation.setEnabled(false);
+		btn_AfficherParticipation.setBounds(12, 276, 125, 35);
+		frame.getContentPane().add(btn_AfficherParticipation);
 		
 		frame.setVisible(true);
 	}
-
 }
