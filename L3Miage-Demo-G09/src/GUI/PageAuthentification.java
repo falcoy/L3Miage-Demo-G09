@@ -46,6 +46,7 @@ public class PageAuthentification {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 350, 250);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -73,6 +74,7 @@ public class PageAuthentification {
 			public void actionPerformed(ActionEvent arg0) {
 				if(connexion.connexion(textField_Identifiant.getText(), new String(passwordField.getPassword()))) {
 					Menu menu = new Menu();
+					frame.dispose();
 				}
 			}
 		});
