@@ -130,4 +130,14 @@
     	</message>
     </messages>
   </user>
+  <user>
+    <ID>9</ID>
+    <login>gg</login>
+    <pwd>ez</pwd>
+    <nom>sardoche</nom>
+    <adresse>1232 avenue du nexus</adresse>
+    <mail>sardoche@postal.fr</mail>
+    <messages>
+    </messages>
+  </user>
 </users>
