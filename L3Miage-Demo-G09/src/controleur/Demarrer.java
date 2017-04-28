@@ -5,7 +5,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import GUI.*;
-import Module_Messagerie._SalonDiscussion;
 import serveur._Authentification;
 
 public class Demarrer {

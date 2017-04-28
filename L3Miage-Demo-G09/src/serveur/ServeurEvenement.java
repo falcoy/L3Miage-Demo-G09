@@ -15,9 +15,14 @@ public class ServeurEvenement {
 			System.setProperty("java.security.policy", "file:./security.policy");
 
 			Athentification auth = new Athentification(null,null);
-			String url = "rmi://" + InetAddress.getLocalHost().getHostAddress() + "/Authentification";
-			System.out.println("Enregistrement de l'objet avec l'url : " + url);
-			reg.rebind(url, auth);
+			String url_1 = "rmi://" + InetAddress.getLocalHost().getHostAddress() + "/Authentification";
+			System.out.println("Enregistrement de l'objet avec l'url : " + url_1);
+			reg.rebind(url_1, auth);
+
+			RechercheEvenement rechercheEvenement = new RechercheEvenement();
+			String url_2 = "rmi://" + InetAddress.getLocalHost().getHostAddress() + "/RechercheEvenement";
+			System.out.println("Enregistrement de l'objet avec l'url : " + url_2);
+			reg.rebind(url_2, rechercheEvenement);
 
 			System.out.println("Serveur lancee");
 		} catch (RemoteException e) {
