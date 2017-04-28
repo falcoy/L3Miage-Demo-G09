@@ -73,6 +73,8 @@ public class PageAuthentification {
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(connexion.connexion(textField_Identifiant.getText(), new String(passwordField.getPassword()))) {
+					textField_Identifiant.setText("");
+					passwordField.setText("");
 					Menu menu = new Menu();
 					frame.dispose();
 				}
