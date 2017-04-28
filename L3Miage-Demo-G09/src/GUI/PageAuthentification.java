@@ -71,7 +71,7 @@ public class PageAuthentification {
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(connexion.connexion(textField_Identifiant.getText(), passwordField.getPassword().toString())) {
+				if(connexion.connexion(textField_Identifiant.getText(), new String(passwordField.getPassword()))) {
 					Menu menu = new Menu();
 				}
 			}

@@ -1,5 +1,6 @@
 package serveur;
 
+import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -19,6 +20,7 @@ public class Athentification extends UnicastRemoteObject implements _Authentific
 
 	@Override
 	public boolean reco(String login, String mdp) throws RemoteException{
+		this.auth.setCheminXML( new File ("src/serveur/XML.xml")); 
 		return auth.reconnaissance(login, mdp);
 	}
 }
