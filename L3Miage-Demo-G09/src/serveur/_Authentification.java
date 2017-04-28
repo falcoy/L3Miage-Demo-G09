@@ -5,6 +5,6 @@ import java.rmi.RemoteException;
 
 public interface _Authentification extends Remote {
 	
-	public boolean reco(String login, String mdp)throws RemoteException;
+	public boolean reco(String identifiant, String mdp)throws RemoteException;
 
 }

@@ -12,10 +12,10 @@ public class Connexion {
 	{
 		this.authentfication = auth;
 	}
-	public boolean connexion(String login, String motDePasse)
+	public boolean connexion(String identifiant, String motDePasse)
 	{		
 		try {
-			return this.authentfication.reco(login,motDePasse);
+			return this.authentfication.reco(identifiant,motDePasse);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
