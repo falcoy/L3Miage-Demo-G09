@@ -25,6 +25,7 @@ public class Menu {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 350, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -41,7 +42,7 @@ public class Menu {
 				frame.dispose();
 			}
 		});
-		btn_CreationDunEvenement.setBounds(26, 58, 300, 50);
+		btn_CreationDunEvenement.setBounds(20, 70, 300, 50);
 		frame.getContentPane().add(btn_CreationDunEvenement);
 
 		JButton btn_RechercheDEvenement = new JButton("Recherche d'Evenement");
@@ -51,7 +52,7 @@ public class Menu {
 				frame.dispose();
 			}
 		});
-		btn_RechercheDEvenement.setBounds(26, 120, 300, 50);
+		btn_RechercheDEvenement.setBounds(20, 130, 300, 50);
 		frame.getContentPane().add(btn_RechercheDEvenement);
 
 		JButton btn_ConsulterMaMessagerie = new JButton("Consulter ma messagerie");
@@ -61,7 +62,7 @@ public class Menu {
 				frame.dispose();
 			}
 		});
-		btn_ConsulterMaMessagerie.setBounds(26, 182, 300, 50);
+		btn_ConsulterMaMessagerie.setBounds(20, 190, 300, 50);
 		frame.getContentPane().add(btn_ConsulterMaMessagerie);
 
 		JButton btn_Deconnexion = new JButton("Deconnexion");

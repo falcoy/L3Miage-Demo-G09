@@ -12,7 +12,7 @@ public class Demarrer {
 
 	public static void main(String[] args) throws Exception {
 
-		String nomServeur = "130.190.60.136";
+		String nomServeur = "127.0.1.1";
 		Connexion connexion;
 
 		Registry reg = LocateRegistry.getRegistry(nomServeur, 5555);
