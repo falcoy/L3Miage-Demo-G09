@@ -67,7 +67,7 @@ public class Menu {
 		JButton btn_Deconnexion = new JButton("Deconnexion");
 		btn_Deconnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PageAuthentification pageAuth = new PageAuthentification();
+				PageAuthentification pageAuth = new PageAuthentification(null);
 				frame.dispose();
 			}
 		});

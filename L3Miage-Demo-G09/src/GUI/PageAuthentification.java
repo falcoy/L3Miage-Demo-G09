@@ -4,24 +4,33 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import Module_Securite.Authentification;
 import Module_Securite.Crypteur;
+import controleur.Connexion;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.awt.event.ActionEvent;
 
 public class PageAuthentification {
 
 	private JFrame frame;
 	private JTextField textField_Identifiant;
 	private JPasswordField passwordField;
+	
+	private Connexion connexion;
 
 	/**
 	 * Create the application.
 	 */
-	public PageAuthentification() {
+	public PageAuthentification(Connexion connexion) {
 		initialize();				
+		
+		this.connexion = connexion;
+		
 		Crypteur crypt = new Crypteur(passwordField.toString());
 		String pwdCrypte = crypt.getMsgCrypte();
 		Authentification auth = new Authentification(textField_Identifiant.toString(),pwdCrypte);
@@ -60,6 +69,13 @@ public class PageAuthentification {
 		textField_Identifiant.setColumns(10);
 		
 		JButton btnConnexion = new JButton("Connexion");
+		btnConnexion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(connexion.connexion(textField_Identifiant.getText(), passwordField.getPassword().toString())) {
+					Menu menu = new Menu();
+				}
+			}
+		});
 		btnConnexion.setBounds(128, 167, 98, 24);
 		frame.getContentPane().add(btnConnexion);
 		
