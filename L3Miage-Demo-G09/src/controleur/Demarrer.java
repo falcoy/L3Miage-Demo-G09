@@ -11,7 +11,7 @@ public class Demarrer {
 
 	public static void main(String[] args) throws Exception {
 
-		String nomServeur = "192.168.1.34";
+		String nomServeur = "127.0.1.1";
 		Connexion connexion;
 
 		Registry reg = LocateRegistry.getRegistry(nomServeur, 5555);
@@ -22,7 +22,7 @@ public class Demarrer {
 
 		if (remote instanceof _Authentification) {
 			connexion = new Connexion((_Authentification) remote);
-			PageAuthentification pageAuth = new PageAuthentification(connexion);
+			PageAuthentification pageAuth = new PageAuthentification(connexion, nomServeur, reg);
 		}
 
 	}

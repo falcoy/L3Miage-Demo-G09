@@ -36,12 +36,6 @@ public class CreationEvenement {
 		frame.getContentPane().setLayout(null);
 
 		JButton btn_Retour = new JButton("Retour");
-		btn_Retour.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Menu menu = new Menu();
-				frame.dispose();
-			}
-		});
 		btn_Retour.setBounds(203, 323, 125, 35);
 		frame.getContentPane().add(btn_Retour);
 

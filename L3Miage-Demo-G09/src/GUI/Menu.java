@@ -3,18 +3,32 @@ package GUI;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import controleur.Connexion;
+import serveur._Authentification;
+import serveur._RechercheEvenement;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.rmi.Remote;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.awt.event.ActionEvent;
 
 public class Menu {
 
 	private JFrame frame;
 
+	private String ipServeur;
+	private Registry reg;
+
 	/**
 	 * Create the application.
 	 */
-	public Menu() {
+	public Menu(String ipServeur, Registry reg) {
+		this.ipServeur = ipServeur;
+		this.reg = reg;
+
 		initialize();
 		// fermer GUI à distance
 		// ouvrir interface utilisateur à distance
@@ -48,8 +62,16 @@ public class Menu {
 		JButton btn_RechercheDEvenement = new JButton("Recherche d'Evenement");
 		btn_RechercheDEvenement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RechercheEvenement rechercheEvenement = new RechercheEvenement();
-				frame.dispose();
+
+				try {
+					Remote remote = reg.lookup("rmi://" + ipServeur + "/RechercheEvenement");
+
+					if (remote instanceof _RechercheEvenement) {
+						RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, new serveur.RechercheEvenement());
+					}
+					frame.dispose();
+				} catch (Exception ex) {
+				}
 			}
 		});
 		btn_RechercheDEvenement.setBounds(20, 130, 300, 50);
@@ -68,7 +90,7 @@ public class Menu {
 		JButton btn_Deconnexion = new JButton("Deconnexion");
 		btn_Deconnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PageAuthentification pageAuth = new PageAuthentification(null);
+				PageAuthentification pageAuth = new PageAuthentification(null, ipServeur, reg);
 				frame.dispose();
 			}
 		});

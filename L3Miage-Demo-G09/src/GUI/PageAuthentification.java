@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.rmi.registry.Registry;
 import java.sql.Connection;
 import java.awt.event.ActionEvent;
 
@@ -22,14 +23,18 @@ public class PageAuthentification {
 	private JPasswordField passwordField;
 	
 	private Connexion connexion;
+	private String ipServeur;
+	private Registry reg;
 
 	/**
 	 * Create the application.
 	 */
-	public PageAuthentification(Connexion connexion) {
+	public PageAuthentification(Connexion connexion, String ipServeur, Registry reg) {
 		initialize();				
 		
 		this.connexion = connexion;
+		this.ipServeur = ipServeur;
+		this.reg = reg;
 		
 		Crypteur crypt = new Crypteur(passwordField.toString());
 		String pwdCrypte = crypt.getMsgCrypte();
@@ -75,7 +80,7 @@ public class PageAuthentification {
 				if(connexion.connexion(textField_Identifiant.getText(), new String(passwordField.getPassword()))) {
 					textField_Identifiant.setText("");
 					passwordField.setText("");
-					Menu menu = new Menu();
+					Menu menu = new Menu(ipServeur, reg);
 					frame.dispose();
 				}
 			}
