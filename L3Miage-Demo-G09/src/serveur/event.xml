@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <evenements>
   <evenement>
-    <nom>Le Vin du côté de chez vous</nom>
-    <date>02122016</date>
+    <nom>Le Vin du côté de chez vous #1</nom>
+    <date>20161202</date>
     <lieu>Valence</lieu>
     <description_event>Degustation de vin dans la salle principale du château de Bourg-Jacques</description_event>
     <createur>raj23</createur>
@@ -39,8 +39,8 @@
     </contributions>
   </evenement>
   <evenement>
-    <nom>Festival du Nez Rouge</nom>
-    <date>05022017</date>
+    <nom>Festival du Nez Rouge #4</nom>
+    <date>20170205</date>
     <lieu>Pierrelatte</lieu>
     <description_event>Fête du vin à Pierrelate accompagnée de diverses activités</description_event>
     <createur>juntir1</createur>

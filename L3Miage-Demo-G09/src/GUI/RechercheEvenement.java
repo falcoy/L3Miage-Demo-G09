@@ -70,6 +70,13 @@ public class RechercheEvenement {
 		frame.getContentPane().add(lbl_RechercheDEvenement);
 
 		JButton btn_Recherche = new JButton("Recherche");
+		btn_Recherche.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(textField_ChampRecherche.getText() != "") {
+					
+				}
+			}
+		});
 		btn_Recherche.setBounds(230, 77, 98, 24);
 		frame.getContentPane().add(btn_Recherche);
 
