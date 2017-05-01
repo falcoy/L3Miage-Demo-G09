@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.ListModel;
 
 import Module_Evenement.Agenda;
+import Module_Evenement.Evenement;
 
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
@@ -75,13 +76,7 @@ public class RechercheEvenement {
 		frame.getContentPane().add(textField_ChampRecherche);
 		textField_ChampRecherche.setColumns(10);
 
-		JButton btn_Afficher = new JButton("Afficher");
-		btn_Afficher.setEnabled(false);
-		btn_Afficher.setBounds(22, 265, 125, 35);
-		frame.getContentPane().add(btn_Afficher);
-
 		JButton btn_Modifier = new JButton("Modifier");
-		btn_Modifier.setEnabled(false);
 		btn_Modifier.setBounds(192, 265, 125, 35);
 		frame.getContentPane().add(btn_Modifier);
 
@@ -93,6 +88,27 @@ public class RechercheEvenement {
 			dlm.addElement(evenements.getEvenements().get(i).getNom());
 		}
 		list.setModel(dlm);
+
+		JButton btn_Afficher = new JButton("Afficher");
+		btn_Afficher.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!list.isSelectionEmpty()) {
+
+					Evenement evenement = null;
+
+					for (Evenement evnmnt : evenements.getEvenements()) {
+						if (evnmnt.getNom() == list.getSelectedValue()) {
+							evenement = evnmnt;
+						}
+					}
+
+					AffichageEvenement affichageEvenement = new AffichageEvenement(ipServeur, reg, evenement);
+					frame.dispose();
+				}
+			}
+		});
+		btn_Afficher.setBounds(22, 265, 125, 35);
+		frame.getContentPane().add(btn_Afficher);
 
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

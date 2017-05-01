@@ -9,17 +9,31 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+
+import Module_Evenement.Evenement;
+
 import javax.swing.JTable;
+import java.awt.event.ActionListener;
+import java.rmi.registry.Registry;
+import java.awt.event.ActionEvent;
 
 public class AffichageEvenement {
 
 	private JFrame frame;
 	private JTable table_Participants;
+	
+	private Evenement evenement;
+	private String ipServeur;
+	private Registry reg;
 
 	/**
 	 * Create the application.
 	 */
-	public AffichageEvenement() {
+	public AffichageEvenement(String ipServeur, Registry reg, Evenement evenement) {
+		this.evenement = evenement;
+		this.ipServeur = ipServeur;
+		this.reg = reg;
+		
 		initialize();
 	}
 
@@ -34,6 +48,11 @@ public class AffichageEvenement {
 		frame.getContentPane().setLayout(null);
 
 		JButton btn_Retour = new JButton("Retour");
+		btn_Retour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, evenements);
+			}
+		});
 		btn_Retour.setBounds(213, 395, 125, 35);
 		frame.getContentPane().add(btn_Retour);
 
@@ -65,19 +84,24 @@ public class AffichageEvenement {
 		lbl_Description.setBounds(26, 171, 88, 14);
 		frame.getContentPane().add(lbl_Description);
 
-		JTextField textField_Nom = new JTextField();
+		JTextField textField_Nom = new JTextField(evenement.getNom());
 		textField_Nom.setEditable(false);
 		textField_Nom.setBounds(121, 94, 175, 18);
 		frame.getContentPane().add(textField_Nom);
 		textField_Nom.setColumns(10);
 
-		JTextField textField_Date = new JTextField();
+		int date = evenement.getDate();
+		int annee = date / 10000;
+		int mois = (date - (date - (date%10000)))/100;
+		int jour = date - ((date - (date%10000)) + mois*100);
+		
+		JTextField textField_Date = new JTextField(jour + "/" + mois + "/" + annee);
 		textField_Date.setEditable(false);
 		textField_Date.setColumns(10);
 		textField_Date.setBounds(121, 118, 175, 18);
 		frame.getContentPane().add(textField_Date);
 
-		JTextField textField_Lieu = new JTextField();
+		JTextField textField_Lieu = new JTextField(evenement.getLieu());
 		textField_Lieu.setEditable(false);
 		textField_Lieu.setColumns(10);
 		textField_Lieu.setBounds(121, 144, 175, 18);
@@ -88,7 +112,7 @@ public class AffichageEvenement {
 		scrollPane.setBounds(121, 172, 175, 100);
 		frame.getContentPane().add(scrollPane);
 
-		JTextArea textArea_Description = new JTextArea();
+		JTextArea textArea_Description = new JTextArea(evenement.getDescription());
 		textArea_Description.setEditable(false);
 		scrollPane.setViewportView(textArea_Description);
 		textArea_Description.setBorder(UIManager.getBorder("TextField.border"));

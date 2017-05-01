@@ -37,8 +37,9 @@ public class RechercheEvenement extends UnicastRemoteObject implements _Recherch
 				String nom = document.getElementsByTagName("nom").item(i).getTextContent();
 				String lieu = document.getElementsByTagName("lieu").item(i).getTextContent();
 				int date = Integer.parseInt(document.getElementsByTagName("date").item(i).getTextContent());
-
-				this.evenements.ajouterEvenement(new Evenement(nom, lieu, date));
+				String description = document.getElementsByTagName("description_event").item(i).getTextContent();
+				
+				this.evenements.ajouterEvenement(new Evenement(nom, lieu, date, description));
 			}
 		} catch (Exception ex) {
 		}
