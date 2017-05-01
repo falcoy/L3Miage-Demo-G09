@@ -7,14 +7,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 
 import Module_Evenement.Agenda;
 import Module_Evenement.Evenement;
 
-import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 
@@ -69,17 +69,6 @@ public class RechercheEvenement {
 		lbl_RechercheDEvenement.setBounds(96, 51, 147, 14);
 		frame.getContentPane().add(lbl_RechercheDEvenement);
 
-		JButton btn_Recherche = new JButton("Recherche");
-		btn_Recherche.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(textField_ChampRecherche.getText() != "") {
-					
-				}
-			}
-		});
-		btn_Recherche.setBounds(230, 77, 98, 24);
-		frame.getContentPane().add(btn_Recherche);
-
 		textField_ChampRecherche = new JTextField();
 		textField_ChampRecherche.setBounds(12, 77, 205, 24);
 		frame.getContentPane().add(textField_ChampRecherche);
@@ -111,13 +100,38 @@ public class RechercheEvenement {
 						}
 					}
 
-					AffichageEvenement affichageEvenement = new AffichageEvenement(ipServeur, reg, evenement, rechercheEvenement);
+					AffichageEvenement affichageEvenement = new AffichageEvenement(ipServeur, reg, evenement,
+							rechercheEvenement);
 					frame.dispose();
 				}
 			}
 		});
 		btn_Afficher.setBounds(22, 265, 125, 35);
 		frame.getContentPane().add(btn_Afficher);
+
+		JButton btn_Recherche = new JButton("Recherche");
+		btn_Recherche.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (textField_ChampRecherche.getText() != "") {
+					List<String> noms = new ArrayList<String>();
+					for (int i = 0; i < list.getModel().getSize(); i++) {
+						noms.add(list.getModel().getElementAt(i).toString());
+					}
+
+					for (String evenement : noms) {
+						if (textField_ChampRecherche.getText().equals(evenement)) {
+							list.removeAll();
+
+							DefaultListModel<String> dlm = new DefaultListModel<String>();
+							dlm.addElement(evenement);
+							list.setModel(dlm);
+						}
+					}
+				}
+			}
+		});
+		btn_Recherche.setBounds(230, 77, 98, 24);
+		frame.getContentPane().add(btn_Recherche);
 
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
