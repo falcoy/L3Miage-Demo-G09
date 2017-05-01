@@ -99,6 +99,7 @@ public class AffichageMessage {
 		frame.getContentPane().add(btn_Supprimer);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 }

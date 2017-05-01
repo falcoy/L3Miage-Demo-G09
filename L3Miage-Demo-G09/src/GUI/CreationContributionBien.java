@@ -101,6 +101,7 @@ public class CreationContributionBien {
 		frame.getContentPane().add(btn_Valider);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 }

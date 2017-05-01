@@ -75,5 +75,6 @@ public class RechercheEvenement {
 		frame.getContentPane().add(btn_Modifier);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

@@ -76,6 +76,7 @@ public class Menu {
 		frame.getContentPane().add(btn_Deconnexion);
 
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 }

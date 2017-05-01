@@ -98,5 +98,6 @@ public class ModificationEvenement {
 		frame.getContentPane().add(btn_Supprimer);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

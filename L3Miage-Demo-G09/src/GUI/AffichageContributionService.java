@@ -98,5 +98,6 @@ public class AffichageContributionService {
 		frame.getContentPane().add(textField_Createur);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		}
 }

@@ -88,5 +88,6 @@ public class PageAuthentification {
 		frame.getContentPane().add(passwordField);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

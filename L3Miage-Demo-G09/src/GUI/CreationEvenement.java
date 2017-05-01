@@ -104,5 +104,6 @@ public class CreationEvenement {
 		frame.getContentPane().add(btn_Creer);
 
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

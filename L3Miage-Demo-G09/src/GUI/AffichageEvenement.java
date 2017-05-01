@@ -109,5 +109,6 @@ public class AffichageEvenement {
 		frame.getContentPane().add(table_Participants);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

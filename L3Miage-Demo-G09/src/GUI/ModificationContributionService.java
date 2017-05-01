@@ -89,6 +89,7 @@ public class ModificationContributionService {
 		frame.getContentPane().add(btn_Supprimer);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 }

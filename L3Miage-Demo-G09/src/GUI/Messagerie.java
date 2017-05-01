@@ -86,5 +86,6 @@ public class Messagerie {
 		frame.getContentPane().add(btn_Afficher);
 
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

@@ -11,7 +11,7 @@ public class Demarrer {
 
 	public static void main(String[] args) throws Exception {
 
-		String nomServeur = "127.0.0.2";
+		String nomServeur = "192.168.1.34";
 		Connexion connexion;
 
 		Registry reg = LocateRegistry.getRegistry(nomServeur, 5555);

@@ -73,5 +73,6 @@ public class AffichageParticipants {
 		frame.getContentPane().add(btn_AfficherParticipation);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

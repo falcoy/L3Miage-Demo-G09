@@ -93,5 +93,6 @@ public class EnvoiMessage {
 		frame.getContentPane().add(lbl_Message);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }

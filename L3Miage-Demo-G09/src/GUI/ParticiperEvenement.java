@@ -59,6 +59,7 @@ public class ParticiperEvenement {
 		frame.getContentPane().add(btn_Service);
 		
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 }
