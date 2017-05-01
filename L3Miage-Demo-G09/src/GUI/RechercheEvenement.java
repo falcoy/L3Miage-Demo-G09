@@ -26,6 +26,7 @@ public class RechercheEvenement {
 	private String ipServeur;
 	private Registry reg;
 	private Agenda evenements;
+	private serveur.RechercheEvenement rechercheEvenement;
 
 	/**
 	 * Create the application.
@@ -34,6 +35,7 @@ public class RechercheEvenement {
 		this.ipServeur = ipServeur;
 		this.reg = reg;
 		this.evenements = evenements.getAgenda();
+		this.rechercheEvenement = evenements;
 
 		initialize();
 	}
@@ -102,7 +104,7 @@ public class RechercheEvenement {
 						}
 					}
 
-					AffichageEvenement affichageEvenement = new AffichageEvenement(ipServeur, reg, evenement);
+					AffichageEvenement affichageEvenement = new AffichageEvenement(ipServeur, reg, evenement, rechercheEvenement);
 					frame.dispose();
 				}
 			}

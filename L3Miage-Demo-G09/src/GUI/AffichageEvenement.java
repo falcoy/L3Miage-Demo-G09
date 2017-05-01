@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import Module_Evenement.Agenda;
 import Module_Evenement.Evenement;
 
 import javax.swing.JTable;
@@ -25,14 +26,17 @@ public class AffichageEvenement {
 	private Evenement evenement;
 	private String ipServeur;
 	private Registry reg;
+	private serveur.RechercheEvenement rechercheEvenements;
 
 	/**
 	 * Create the application.
+	 * @param evenements 
 	 */
-	public AffichageEvenement(String ipServeur, Registry reg, Evenement evenement) {
+	public AffichageEvenement(String ipServeur, Registry reg, Evenement evenement, serveur.RechercheEvenement rechercheEvenements) {
 		this.evenement = evenement;
 		this.ipServeur = ipServeur;
 		this.reg = reg;
+		this.rechercheEvenements = rechercheEvenements;
 		
 		initialize();
 	}
@@ -50,7 +54,8 @@ public class AffichageEvenement {
 		JButton btn_Retour = new JButton("Retour");
 		btn_Retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, evenements);
+				RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, rechercheEvenements);
+				frame.dispose();
 			}
 		});
 		btn_Retour.setBounds(213, 395, 125, 35);
