@@ -118,15 +118,15 @@ public class RechercheEvenement {
 						noms.add(list.getModel().getElementAt(i).toString());
 					}
 
-					for (String evenement : noms) {
-						if (textField_ChampRecherche.getText().equals(evenement)) {
+					DefaultListModel<String> dlm2 = new DefaultListModel<String>();
+					for (int i = 0; i < dlm.getSize(); i++) {
+						if (dlm.get(i).contains(textField_ChampRecherche.getText())) {
 							list.removeAll();
 
-							DefaultListModel<String> dlm = new DefaultListModel<String>();
-							dlm.addElement(evenement);
-							list.setModel(dlm);
+							dlm2.addElement(dlm.get(i));
 						}
 					}
+					list.setModel(dlm2);
 				}
 			}
 		});
