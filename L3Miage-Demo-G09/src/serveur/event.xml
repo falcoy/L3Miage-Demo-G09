@@ -32,8 +32,8 @@
         <id_cserv>10</id_cserv>
         <id_contact>3</id_contact>
         <nom_cserv>Zeus - Securité</nom_cserv>
-        <valeur_cbien>300</valeur_cbien>
-        <description_cbien>Service de sécurité de la société Zeus basée à Lyon</description_cbien>
+        <valeur_cserv>300</valeur_cserv>
+        <description_cserv>Service de sécurité de la société Zeus basée à Lyon</description_cserv>
       </contribution_service>
      </contributions_service>
     </contributions>

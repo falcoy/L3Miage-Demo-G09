@@ -43,8 +43,8 @@
                                 <xs:element type="xs:byte" name="id_cserv" minOccurs="0"/>
                                 <xs:element type="xs:byte" name="id_contact" minOccurs="0"/>
                                 <xs:element type="xs:string" name="nom_cserv" minOccurs="0"/>
-                                <xs:element type="xs:short" name="valeur_cbien" minOccurs="0"/>
-                                <xs:element type="xs:string" name="description_cbien" minOccurs="0"/>
+                                <xs:element type="xs:short" name="valeur_cserv" minOccurs="0"/>
+                                <xs:element type="xs:string" name="description_cserv" minOccurs="0"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
