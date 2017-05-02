@@ -9,17 +9,23 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.tree.DefaultTreeCellEditor.DefaultTextField;
+
+import Module_Messagerie.MessageTexte;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class AffichageMessage {
 
 	private JFrame frame;
+	private MessageTexte message;
 
 	/**
 	 * Create the application.
 	 */
-	public AffichageMessage() {
+	public AffichageMessage(MessageTexte msgTxt) {
+		this.message=msgTxt;
 		initialize();
 	}
 
@@ -36,7 +42,6 @@ public class AffichageMessage {
 		JButton btn_Retour = new JButton("Retour");
 		btn_Retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Messagerie affichageMessages = new Messagerie();
 				frame.dispose();
 			}
 		});
@@ -61,7 +66,7 @@ public class AffichageMessage {
 		textField_ValeurFinanciere.setEditable(false);
 		textField_ValeurFinanciere.setColumns(10);
 		textField_ValeurFinanciere.setBounds(133, 93, 150, 18);
-		frame.getContentPane().add(textField_ValeurFinanciere);
+		frame.getContentPane().add(textField_ValeurFinanciere);textField_ValeurFinanciere.setText(this.message.getExpediteur().getNom());
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBorder(null);
@@ -73,6 +78,7 @@ public class AffichageMessage {
 		scrollPane.setViewportView(textArea_Message);
 		textArea_Message.setBorder(UIManager.getBorder("TextField.border"));
 		textArea_Message.setLineWrap(true);
+		textArea_Message.setText(this.message.getcontenu());
 		
 		JLabel lbl_Destinataire = new JLabel("Destinataire");
 		lbl_Destinataire.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -83,7 +89,7 @@ public class AffichageMessage {
 		textField.setEditable(false);
 		textField.setColumns(10);
 		textField.setBounds(133, 119, 150, 18);
-		frame.getContentPane().add(textField);
+		frame.getContentPane().add(textField);textField.setText(this.message.getDestinataire().getNom());
 		
 		JLabel lbl_Message = new JLabel("Message");
 		lbl_Message.setFont(new Font("Dialog", Font.BOLD, 14));

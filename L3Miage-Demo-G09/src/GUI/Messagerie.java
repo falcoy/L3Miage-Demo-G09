@@ -1,6 +1,8 @@
 package GUI;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -74,10 +76,6 @@ public class Messagerie {
 		JButton btn_NouveauMessage = new JButton("Nouveau");
 		btn_NouveauMessage.setBounds(12, 281, 314, 30);
 		frame.getContentPane().add(btn_NouveauMessage);
-
-		JButton btn_Afficher = new JButton("Afficher");
-		btn_Afficher.setBounds(12, 323, 125, 35);
-		frame.getContentPane().add(btn_Afficher);
 		
 		JList<String> list = new JList<String>();
 		list.setBounds(12, 122, 316, 147);
@@ -86,7 +84,19 @@ public class Messagerie {
 			dlm.addElement(messages.get(i).getExpediteur().getNom() + " - " + messages.get(i).getDate());
 		}
 		list.setModel(dlm);
-
+		
+		JButton btn_Afficher = new JButton("Afficher");
+		btn_Afficher.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AffichageMessage affichageMessage = new AffichageMessage(messages.get(list.getSelectedIndex()));
+				
+			}
+		});
+		btn_Afficher.setBounds(12, 323, 125, 35);
+		frame.getContentPane().add(btn_Afficher);
+		
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 	}
