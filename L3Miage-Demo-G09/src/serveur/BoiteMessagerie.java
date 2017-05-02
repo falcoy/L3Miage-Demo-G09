@@ -23,7 +23,7 @@ import Module_Messagerie.MessageTexte;
 import Module_Messagerie.SalonDiscussion;
 import Structure_Contact.Contact;
 
-public class BoiteMessagerie extends SalonDiscussion implements Serializable {
+public class BoiteMessagerie extends SalonDiscussion {
 
 	/**
 	 * 
