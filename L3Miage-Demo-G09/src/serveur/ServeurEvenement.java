@@ -31,14 +31,18 @@ public class ServeurEvenement {
 			ann.ajouterContact(new Contact("juntir", null, "juntir@inc.com"));
 			ann.ajouterContact(new Contact("raj", null, "raj@inc.com"));			
 			ann.ajouterContact(new Contact("jerome", null, "jerome@inc.com"));
-
 			
 			Messagerie messagerieEvenement = new Messagerie(ann);
 			String url_3 = "rmi://" + InetAddress.getLocalHost().getHostAddress() + "/MessagerieEvenement";
 			System.out.println("Enregistrement de l'objet avec l'url : " + url_3);
 			reg.rebind(url_3, messagerieEvenement);
+			
+			CreationEvenement creationEvenement = new CreationEvenement();
+			String url_4 = "rmi://" + InetAddress.getLocalHost().getHostAddress() + "/CreationEvenement";
+			System.out.println("Enregistrement de l'objet avec l'url : " + url_4);
+			reg.rebind(url_4, creationEvenement);
 
-			System.out.println("Serveur lancee");
+			System.out.println("Serveur lance");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 

@@ -7,8 +7,13 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
+
+import Module_Evenement.Evenement;
+
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.rmi.registry.Registry;
 import java.awt.event.ActionEvent;
 
 public class CreationEvenement {
@@ -18,10 +23,16 @@ public class CreationEvenement {
 	private JTextField textField_Date;
 	private JTextField textField_Lieu;
 
+	private String ipServeur;
+	private Registry reg;
+
 	/**
 	 * Create the application.
 	 */
-	public CreationEvenement() {
+	public CreationEvenement(String ipServeur, Registry reg) {
+		this.ipServeur = ipServeur;
+		this.reg = reg;
+
 		initialize();
 	}
 
@@ -36,6 +47,12 @@ public class CreationEvenement {
 		frame.getContentPane().setLayout(null);
 
 		JButton btn_Retour = new JButton("Retour");
+		btn_Retour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Menu menu = new Menu(ipServeur, reg);
+				frame.dispose();
+			}
+		});
 		btn_Retour.setBounds(203, 323, 125, 35);
 		frame.getContentPane().add(btn_Retour);
 
@@ -94,6 +111,23 @@ public class CreationEvenement {
 		textArea_Description.setLineWrap(true);
 
 		JButton btn_Creer = new JButton("Créer");
+		btn_Creer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					if (!textField_Nom.getText().equals("") && !textField_Lieu.getText().equals("") && !textField_Date.getText().equals("") && !textArea_Description.getText().equals("")) {
+						serveur.CreationEvenement creationEvenement = new serveur.CreationEvenement();
+						Evenement evenement = new Evenement(textField_Nom.getText(), textField_Lieu.getText(), Integer.parseInt(textField_Date.getText()), textArea_Description.getText());
+
+						creationEvenement.creationEvenement(evenement, new File("src/serveur/event.xml"));
+
+						Menu menu = new Menu(ipServeur, reg);
+						frame.dispose();
+					}
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
+			}
+		});
 		btn_Creer.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Creer);
 

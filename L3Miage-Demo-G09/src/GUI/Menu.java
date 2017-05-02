@@ -9,6 +9,7 @@ import Structure_Contact.Contact;
 import controleur.Connexion;
 import controleur.Demarrer;
 import serveur._Authentification;
+import serveur._CreationEvenement;
 import serveur._Messagerie;
 import serveur._RechercheEvenement;
 
@@ -56,8 +57,16 @@ public class Menu {
 		JButton btn_CreationDunEvenement = new JButton("Creation d'un Evenement");
 		btn_CreationDunEvenement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CreationEvenement creationEvenement = new CreationEvenement();
-				frame.dispose();
+				try {
+					Remote remote = reg.lookup("rmi://" + ipServeur + "/CreationEvenement");
+
+					if (remote instanceof _CreationEvenement) {
+						CreationEvenement creationEvenement = new CreationEvenement(ipServeur, reg);
+					}
+					frame.dispose();
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
 			}
 		});
 		btn_CreationDunEvenement.setBounds(20, 70, 300, 50);
@@ -88,15 +97,17 @@ public class Menu {
 					Remote remote = reg.lookup("rmi://" + ipServeur + "/MessagerieEvenement");
 
 					if (remote instanceof _Messagerie) {
-						Contact proprio = new Contact(/*PageAuthentification.nom*/"juntir", null, "juntir@inc.com");
-						Messagerie affichageMessages = new Messagerie(ipServeur,reg, proprio, ((_Messagerie) remote).consulterMessagerie(proprio));
+						Contact proprio = new Contact(
+								/* PageAuthentification.nom */"juntir", null, "juntir@inc.com");
+						Messagerie affichageMessages = new Messagerie(ipServeur, reg, proprio,
+								((_Messagerie) remote).consulterMessagerie(proprio));
 					}
 					frame.dispose();
 				} catch (Exception ex) {
 					System.out.println(ex);
 				}
 			}
-			
+
 		});
 		btn_ConsulterMaMessagerie.setBounds(20, 190, 300, 50);
 		frame.getContentPane().add(btn_ConsulterMaMessagerie);

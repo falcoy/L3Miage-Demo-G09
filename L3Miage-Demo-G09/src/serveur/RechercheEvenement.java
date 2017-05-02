@@ -1,7 +1,6 @@
 package serveur;
 
 import java.rmi.RemoteException;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import org.w3c.dom.Document;
 
 import Module_Evenement.Agenda;
 import Module_Evenement.Evenement;
-import Structure_Contact.Contact;
 
 public class RechercheEvenement extends UnicastRemoteObject implements _RechercheEvenement {
 

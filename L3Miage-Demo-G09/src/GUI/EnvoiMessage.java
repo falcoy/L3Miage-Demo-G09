@@ -9,8 +9,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class EnvoiMessage {
 
@@ -35,12 +33,6 @@ public class EnvoiMessage {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btn_Retour = new JButton("Retour");
-		btn_Retour.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Messagerie affichageMessages = new Messagerie();
-				frame.dispose();
-			}
-		});
 		btn_Retour.setBounds(203, 323, 125, 35);
 		frame.getContentPane().add(btn_Retour);
 		
