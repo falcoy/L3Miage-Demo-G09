@@ -2,24 +2,36 @@ package GUI;
 
 import java.awt.Font;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.JTable;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import Module_Messagerie.MessageTexte;
+import Structure_Contact.Contact;
+
+import java.rmi.registry.Registry;
+import java.util.List;
+import javax.swing.JList;
 
 public class Messagerie {
 
 	private JFrame frame;
+	private String ipServeur;
+	private Registry reg;
+	private List<MessageTexte> messages;
 
 	/**
 	 * Create the application.
 	 */
-	public Messagerie() {
+	public Messagerie(String ipServeur, Registry reg, Contact proprio, List<MessageTexte> messages) {
+		this.ipServeur=ipServeur;
+		this.reg=reg;
+		this.messages = messages;
+		
 		initialize();
+		
 	}
 
 	/**
@@ -59,25 +71,21 @@ public class Messagerie {
 		btn_Filtrer.setBounds(250, 95, 78, 18);
 		frame.getContentPane().add(btn_Filtrer);
 
-		JTable table_Messages = new JTable();
-		table_Messages.setBorder(UIManager.getBorder("TextField.border"));
-		table_Messages.setBounds(12, 122, 316, 147);
-		frame.getContentPane().add(table_Messages);
-
 		JButton btn_NouveauMessage = new JButton("Nouveau");
-		btn_NouveauMessage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				EnvoiMessage envoiMessage = new EnvoiMessage();
-				frame.dispose();
-			}
-		});
 		btn_NouveauMessage.setBounds(12, 281, 314, 30);
 		frame.getContentPane().add(btn_NouveauMessage);
 
 		JButton btn_Afficher = new JButton("Afficher");
-		btn_Afficher.setEnabled(false);
 		btn_Afficher.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Afficher);
+		
+		JList<String> list = new JList<String>();
+		list.setBounds(12, 122, 316, 147);
+		frame.getContentPane().add(list);DefaultListModel<String> dlm = new DefaultListModel<String>();
+		for (int i = 0; i < this.messages.size(); i++) {
+			dlm.addElement(messages.get(i).getExpediteur().getNom() + " - " + messages.get(i).getDate());
+		}
+		list.setModel(dlm);
 
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

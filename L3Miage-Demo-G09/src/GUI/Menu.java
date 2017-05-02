@@ -4,8 +4,12 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import Module_Messagerie.MessageTexte;
+import Structure_Contact.Contact;
 import controleur.Connexion;
+import controleur.Demarrer;
 import serveur._Authentification;
+import serveur._Messagerie;
 import serveur._RechercheEvenement;
 
 import javax.swing.JButton;
@@ -80,9 +84,19 @@ public class Menu {
 		JButton btn_ConsulterMaMessagerie = new JButton("Consulter ma messagerie");
 		btn_ConsulterMaMessagerie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Messagerie affichageMessages = new Messagerie();
-				frame.dispose();
+				try {
+					Remote remote = reg.lookup("rmi://" + ipServeur + "/MessagerieEvenement");
+
+					if (remote instanceof _Messagerie) {
+						Contact proprio = new Contact(/*PageAuthentification.nom*/"juntir", null, "juntir@inc.com");
+						Messagerie affichageMessages = new Messagerie(ipServeur,reg, proprio, ((_Messagerie) remote).consulterMessagerie(proprio));
+					}
+					frame.dispose();
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
 			}
+			
 		});
 		btn_ConsulterMaMessagerie.setBounds(20, 190, 300, 50);
 		frame.getContentPane().add(btn_ConsulterMaMessagerie);

@@ -8,10 +8,10 @@ import GUI.*;
 import serveur._Authentification;
 
 public class Demarrer {
-
+	
 	public static void main(String[] args) throws Exception {
 
-		String nomServeur = "127.0.1.1";
+		String nomServeur = "130.190.62.86";
 		Connexion connexion;
 
 		Registry reg = LocateRegistry.getRegistry(nomServeur, 5555);
