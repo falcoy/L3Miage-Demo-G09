@@ -28,12 +28,12 @@ public class Messagerie {
 	 * Create the application.
 	 */
 	public Messagerie(String ipServeur, Registry reg, Contact proprio, List<MessageTexte> messages) {
-		this.ipServeur=ipServeur;
-		this.reg=reg;
+		this.ipServeur = ipServeur;
+		this.reg = reg;
 		this.messages = messages;
-		
+
 		initialize();
-		
+
 	}
 
 	/**
@@ -49,6 +49,15 @@ public class Messagerie {
 		JButton btn_Retour = new JButton("Retour");
 		btn_Retour.setBounds(203, 323, 125, 35);
 		frame.getContentPane().add(btn_Retour);
+		btn_Retour.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Menu menu = new Menu(ipServeur, reg);
+				frame.dispose();
+
+			}
+		});
 
 		JLabel lbl_MyEwine = new JLabel("My eWine");
 		lbl_MyEwine.setFont(new Font("Dialog", Font.BOLD, 16));
@@ -76,27 +85,36 @@ public class Messagerie {
 		JButton btn_NouveauMessage = new JButton("Nouveau");
 		btn_NouveauMessage.setBounds(12, 281, 314, 30);
 		frame.getContentPane().add(btn_NouveauMessage);
-		
+		btn_NouveauMessage.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				EnvoiMessage envoiMessage = new EnvoiMessage(ipServeur, reg);
+			}
+		});
+
 		JList<String> list = new JList<String>();
 		list.setBounds(12, 122, 316, 147);
-		frame.getContentPane().add(list);DefaultListModel<String> dlm = new DefaultListModel<String>();
+		frame.getContentPane().add(list);
+		DefaultListModel<String> dlm = new DefaultListModel<String>();
 		for (int i = 0; i < this.messages.size(); i++) {
 			dlm.addElement(messages.get(i).getExpediteur().getNom() + " - " + messages.get(i).getDate());
 		}
 		list.setModel(dlm);
-		
+
 		JButton btn_Afficher = new JButton("Afficher");
 		btn_Afficher.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AffichageMessage affichageMessage = new AffichageMessage(messages.get(list.getSelectedIndex()));
-				
+				if (!list.isSelectionEmpty()) {
+					AffichageMessage affichageMessage = new AffichageMessage(messages.get(list.getSelectedIndex()));
+				}
 			}
 		});
 		btn_Afficher.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Afficher);
-		
+
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 	}
