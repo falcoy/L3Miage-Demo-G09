@@ -25,14 +25,15 @@ public class CreationEvenement {
 
 	private String ipServeur;
 	private Registry reg;
+	private String loginProprio; 
 
 	/**
 	 * Create the application.
 	 */
-	public CreationEvenement(String ipServeur, Registry reg) {
+	public CreationEvenement(String ipServeur, Registry reg, String loginProprio) {
 		this.ipServeur = ipServeur;
 		this.reg = reg;
-
+		this.loginProprio=loginProprio;
 		initialize();
 	}
 
@@ -49,7 +50,7 @@ public class CreationEvenement {
 		JButton btn_Retour = new JButton("Retour");
 		btn_Retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Menu menu = new Menu(ipServeur, reg);
+				Menu menu = new Menu(ipServeur, reg,loginProprio);
 				frame.dispose();
 			}
 		});
@@ -120,7 +121,7 @@ public class CreationEvenement {
 
 						creationEvenement.creationEvenement(evenement, new File("src/serveur/event.xml"));
 
-						Menu menu = new Menu(ipServeur, reg);
+						Menu menu = new Menu(ipServeur, reg, loginProprio);
 						frame.dispose();
 					}
 				} catch (Exception ex) {

@@ -23,6 +23,7 @@ public class Messagerie {
 	private String ipServeur;
 	private Registry reg;
 	private List<MessageTexte> messages;
+	private Contact proprio;
 
 	/**
 	 * Create the application.
@@ -31,7 +32,7 @@ public class Messagerie {
 		this.ipServeur = ipServeur;
 		this.reg = reg;
 		this.messages = messages;
-
+		this.proprio=proprio;
 		initialize();
 
 	}
@@ -53,7 +54,7 @@ public class Messagerie {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Menu menu = new Menu(ipServeur, reg);
+				Menu menu = new Menu(ipServeur, reg, proprio.getLogin());
 				frame.dispose();
 
 			}
@@ -89,7 +90,7 @@ public class Messagerie {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				EnvoiMessage envoiMessage = new EnvoiMessage(ipServeur, reg);
+				EnvoiMessage envoiMessage = new EnvoiMessage(ipServeur, reg, proprio);
 			}
 		});
 

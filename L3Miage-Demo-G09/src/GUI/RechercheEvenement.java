@@ -25,15 +25,17 @@ public class RechercheEvenement {
 
 	private String ipServeur;
 	private Registry reg;
+	private String loginProprio;
 	private Agenda evenements;
 	private serveur.RechercheEvenement rechercheEvenement;
 
 	/**
 	 * Create the application.
 	 */
-	public RechercheEvenement(String ipServeur, Registry reg, serveur.RechercheEvenement evenements) {
+	public RechercheEvenement(String ipServeur, Registry reg, serveur.RechercheEvenement evenements, String loginProprio) {
 		this.ipServeur = ipServeur;
 		this.reg = reg;
+		this.loginProprio=loginProprio;
 		this.evenements = evenements.getAgenda();
 		this.rechercheEvenement = evenements;
 
@@ -53,7 +55,7 @@ public class RechercheEvenement {
 		JButton btn_Retour = new JButton("Retour");
 		btn_Retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Menu menu = new Menu(ipServeur, reg);
+				Menu menu = new Menu(ipServeur, reg, loginProprio);
 				frame.dispose();
 			}
 		});
@@ -101,7 +103,7 @@ public class RechercheEvenement {
 					}
 
 					AffichageEvenement affichageEvenement = new AffichageEvenement(ipServeur, reg, evenement,
-							rechercheEvenement);
+							rechercheEvenement, loginProprio);
 					frame.dispose();
 				}
 			}

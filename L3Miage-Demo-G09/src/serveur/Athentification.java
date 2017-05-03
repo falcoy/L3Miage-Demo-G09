@@ -23,4 +23,5 @@ public class Athentification extends UnicastRemoteObject implements _Authentific
 		this.auth.setCheminXML( new File ("src/serveur/XML.xml")); 
 		return auth.reconnaissance(identifiant, mdp);
 	}
+
 }

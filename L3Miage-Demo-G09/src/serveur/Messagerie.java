@@ -36,4 +36,33 @@ public class Messagerie extends UnicastRemoteObject implements _Messagerie {
 
 	}
 
+	public void envoiMsg(Contact proprio, String dest, String msg) {
+		Contact desti = null;
+		try {
+			for (int i = 0; i < this.annuaire.getContacts().size(); i++) {
+				if (this.annuaire.getContacts().get(i).getNom().equals(dest)) {
+					desti = this.annuaire.getContacts().get(i);
+				}
+			}
+			BoiteMessagerie btMsg = new BoiteMessagerie("boite" + desti.getNom(), desti);
+			btMsg.envoyerMessage(new MessageTexte(proprio, desti, msg));
+			btMsg.save();
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	public Contact getProprio(String proprio)
+	{
+		for (int i = 0; i < this.annuaire.getContacts().size(); i++) {
+			if (this.annuaire.getContacts().get(i).getNom().equals(proprio)) {
+				return this.annuaire.getContacts().get(i);
+			}
+		}
+		throw new FrameworkException("propriétaire inconnu");
+	}
+
 }

@@ -116,7 +116,7 @@ public class BoiteMessagerie extends SalonDiscussion {
 								expediteur = this.getcontacts().get(indice);
 							} else {
 								expediteur = new Contact(message.item(1).getTextContent(), null,
-										"inconnu@inconnu.com");
+										"inconnu@inconnu.com", "inconnu");
 								//throw new FrameworkException("expediteur inconnu");
 							}
 						}

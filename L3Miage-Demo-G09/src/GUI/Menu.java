@@ -26,13 +26,23 @@ public class Menu {
 
 	private String ipServeur;
 	private Registry reg;
+	private Contact proprio;
 
 	/**
 	 * Create the application.
 	 */
-	public Menu(String ipServeur, Registry reg) {
+	public Menu(String ipServeur, Registry reg, String loginProprio) {
 		this.ipServeur = ipServeur;
 		this.reg = reg;
+		try {
+			Remote remote = reg.lookup("rmi://" + ipServeur + "/MessagerieEvenement");
+
+			if (remote instanceof _Messagerie) {
+				this.proprio=((_Messagerie) remote).getProprio(loginProprio);
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 
 		initialize();
 		// fermer GUI à distance
@@ -61,7 +71,7 @@ public class Menu {
 					Remote remote = reg.lookup("rmi://" + ipServeur + "/CreationEvenement");
 
 					if (remote instanceof _CreationEvenement) {
-						CreationEvenement creationEvenement = new CreationEvenement(ipServeur, reg);
+						CreationEvenement creationEvenement = new CreationEvenement(ipServeur, reg, proprio.getLogin());
 					}
 					frame.dispose();
 				} catch (Exception ex) {
@@ -80,7 +90,7 @@ public class Menu {
 					Remote remote = reg.lookup("rmi://" + ipServeur + "/RechercheEvenement");
 
 					if (remote instanceof _RechercheEvenement) {
-						RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, new serveur.RechercheEvenement());
+						RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, new serveur.RechercheEvenement(), proprio.getLogin());
 					}
 					frame.dispose();
 				} catch (Exception ex) {
@@ -97,8 +107,7 @@ public class Menu {
 					Remote remote = reg.lookup("rmi://" + ipServeur + "/MessagerieEvenement");
 
 					if (remote instanceof _Messagerie) {
-						Contact proprio = new Contact(
-								/* PageAuthentification.nom */"juntir", null, "juntir@inc.com");
+
 						Messagerie affichageMessages = new Messagerie(ipServeur, reg, proprio,
 								((_Messagerie) remote).consulterMessagerie(proprio));
 					}

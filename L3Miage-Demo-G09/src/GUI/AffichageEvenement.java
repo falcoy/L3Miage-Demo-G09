@@ -26,16 +26,18 @@ public class AffichageEvenement {
 	private Evenement evenement;
 	private String ipServeur;
 	private Registry reg;
+	private String loginProprio;
 	private serveur.RechercheEvenement rechercheEvenements;
 
 	/**
 	 * Create the application.
 	 * @param evenements 
 	 */
-	public AffichageEvenement(String ipServeur, Registry reg, Evenement evenement, serveur.RechercheEvenement rechercheEvenements) {
+	public AffichageEvenement(String ipServeur, Registry reg, Evenement evenement, serveur.RechercheEvenement rechercheEvenements, String loginProprio) {
 		this.evenement = evenement;
 		this.ipServeur = ipServeur;
 		this.reg = reg;
+		this.loginProprio=loginProprio;
 		this.rechercheEvenements = rechercheEvenements;
 		
 		initialize();
@@ -54,7 +56,7 @@ public class AffichageEvenement {
 		JButton btn_Retour = new JButton("Retour");
 		btn_Retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, rechercheEvenements);
+				RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, rechercheEvenements, loginProprio);
 				frame.dispose();
 			}
 		});

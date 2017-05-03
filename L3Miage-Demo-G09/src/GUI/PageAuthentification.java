@@ -81,7 +81,7 @@ public class PageAuthentification {
 			public void actionPerformed(ActionEvent arg0) {
 				if(connexion.connexion(textField_Identifiant.getText(), new String(passwordField.getPassword()))) {
 					PageAuthentification.nom = textField_Identifiant.getText();
-					Menu menu = new Menu(ipServeur, reg);
+					Menu menu = new Menu(ipServeur, reg,textField_Identifiant.getText());
 					frame.dispose();
 				}
 			}

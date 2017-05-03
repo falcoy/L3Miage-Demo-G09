@@ -28,9 +28,9 @@ public class ServeurEvenement {
 			reg.rebind(url_2, rechercheEvenement);
 			
 			Annuaire ann= new Annuaire();
-			ann.ajouterContact(new Contact("juntir", null, "juntir@inc.com"));
-			ann.ajouterContact(new Contact("raj", null, "raj@inc.com"));			
-			ann.ajouterContact(new Contact("jerome", null, "jerome@inc.com"));
+			ann.ajouterContact(new Contact("juntir", null, "juntir@inc.com","juntir1"));
+			ann.ajouterContact(new Contact("raj", null, "raj@inc.com","raj26"));			
+			ann.ajouterContact(new Contact("jerome", null, "jerome@inc.com","jeromeF"));
 			
 			Messagerie messagerieEvenement = new Messagerie(ann);
 			String url_3 = "rmi://" + InetAddress.getLocalHost().getHostAddress() + "/MessagerieEvenement";

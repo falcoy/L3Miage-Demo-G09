@@ -25,13 +25,15 @@ public class EnvoiMessage {
 
 	private String ipServeur;
 	private Registry reg;
+	private Contact proprio;
 
 	/**
 	 * Create the application.
 	 */
-	public EnvoiMessage(String ipServeur, Registry reg) {
+	public EnvoiMessage(String ipServeur, Registry reg, Contact proprio) {
 		this.ipServeur = ipServeur;
 		this.reg = reg;
+		this.proprio=proprio;
 		initialize();
 	}
 
@@ -83,7 +85,7 @@ public class EnvoiMessage {
 		lbl_Destinataire.setBounds(41, 120, 88, 14);
 		frame.getContentPane().add(lbl_Destinataire);
 
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(133, 119, 150, 18);
 		frame.getContentPane().add(textField);
@@ -99,10 +101,8 @@ public class EnvoiMessage {
 					Remote remote = reg.lookup("rmi://" + ipServeur + "/MessagerieEvenement");
 
 					if (remote instanceof _Messagerie) {
-						Contact proprio = new Contact(
-								/* PageAuthentification.nom */"juntir", null, "juntir@inc.com");
 						serveur.Messagerie messagerie = (Messagerie) remote;
-						
+						messagerie.envoiMsg(proprio,textField.getText() , textArea_Message.getText());
 					}
 
 				} catch (Exception ex) {
