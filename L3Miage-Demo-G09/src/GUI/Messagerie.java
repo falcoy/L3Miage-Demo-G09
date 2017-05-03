@@ -14,6 +14,7 @@ import Module_Messagerie.MessageTexte;
 import Structure_Contact.Contact;
 
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JList;
 
@@ -32,7 +33,7 @@ public class Messagerie {
 		this.ipServeur = ipServeur;
 		this.reg = reg;
 		this.messages = messages;
-		this.proprio=proprio;
+		this.proprio = proprio;
 		initialize();
 
 	}
@@ -79,10 +80,6 @@ public class Messagerie {
 		frame.getContentPane().add(textField_Filtrer);
 		textField_Filtrer.setColumns(10);
 
-		JButton btn_Filtrer = new JButton("Filtrer");
-		btn_Filtrer.setBounds(250, 95, 78, 18);
-		frame.getContentPane().add(btn_Filtrer);
-
 		JButton btn_NouveauMessage = new JButton("Nouveau");
 		btn_NouveauMessage.setBounds(12, 281, 314, 30);
 		frame.getContentPane().add(btn_NouveauMessage);
@@ -109,12 +106,37 @@ public class Messagerie {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!list.isSelectionEmpty()) {
-					AffichageMessage affichageMessage = new AffichageMessage(messages.get(list.getSelectedIndex()),ipServeur,reg,proprio);
+					AffichageMessage affichageMessage = new AffichageMessage(messages.get(list.getSelectedIndex()),
+							ipServeur, reg, proprio);
 				}
 			}
 		});
 		btn_Afficher.setBounds(12, 323, 125, 35);
 		frame.getContentPane().add(btn_Afficher);
+
+		JButton btn_Filtrer = new JButton("Filtrer");
+		btn_Filtrer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (textField_Filtrer.getText() != "") {
+					List<String> noms = new ArrayList<String>();
+					for (int i = 0; i < list.getModel().getSize(); i++) {
+						noms.add(list.getModel().getElementAt(i).toString());
+					}
+
+					DefaultListModel<String> dlm2 = new DefaultListModel<String>();
+					for (int i = 0; i < dlm.getSize(); i++) {
+						if (dlm.get(i).contains(textField_Filtrer.getText())) {
+							list.removeAll();
+
+							dlm2.addElement(dlm.get(i));
+						}
+					}
+					list.setModel(dlm2);
+				}
+			}
+		});
+		btn_Filtrer.setBounds(250, 95, 78, 18);
+		frame.getContentPane().add(btn_Filtrer);
 
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

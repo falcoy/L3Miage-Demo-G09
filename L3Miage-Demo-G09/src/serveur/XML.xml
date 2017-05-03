@@ -28,6 +28,11 @@
         <date>Wed May 03 15:13:46 CEST 2017</date>
         <contenu>test retour</contenu>
       </message>
+    <message>
+        <expediteur>raj</expediteur>
+        <date>Wed May 03 17:41:48 CEST 2017</date>
+        <contenu>JE TE REP</contenu>
+      </message>
     </messages>
   </user>
   <user>
@@ -62,6 +67,11 @@
         <expediteur>juntir</expediteur>
         <date>Wed May 03 15:13:05 CEST 2017</date>
         <contenu>test</contenu>
+      </message>
+    <message>
+        <expediteur>juntir</expediteur>
+        <date>Wed May 03 17:40:51 CEST 2017</date>
+        <contenu>jrojoireoiuv</contenu>
       </message>
     </messages>
   </user>
