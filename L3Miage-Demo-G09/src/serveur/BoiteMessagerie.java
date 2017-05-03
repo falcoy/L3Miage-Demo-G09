@@ -37,28 +37,28 @@ public class BoiteMessagerie extends SalonDiscussion {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void Save() {
+	public void SaveMsg() {
 
 		try {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder p = dbFactory.newDocumentBuilder();
-			Document doc = p.parse("XML.xml");
+			Document doc = p.parse("./src/serveur/XML.xml");
 
 			for (int i = 0; i < doc.getElementsByTagName("user").getLength(); i++) {
 				NodeList userCourant = doc.getElementsByTagName("user").item(i).getChildNodes();
-				if (userCourant.item(7).getTextContent() == this.proprietaire.getNom()) {
+				if (userCourant.item(7).getTextContent().equals(this.proprietaire.getNom())) {
 
-					for (int index = userCourant.getLength() - 1; index < this.getMessages().size(); index++) {
+					for (int index = 0; index < this.getMessages().size(); index++) {
 						Element message = (Element) doc.createElement("message");
-						Element destinataire = (Element) doc.createElement("destinataire");
+						Element expediteur = (Element) doc.createElement("expediteur");
 						Element contenu = (Element) doc.createElement("contenu");
 						Element date = (Element) doc.createElement("date");
 
-						destinataire.setTextContent(this.getMessages().get(index).getDestinataire().getNom());
+						expediteur.setTextContent(this.getMessages().get(index).getExpediteur().getNom());
 						date.setTextContent(this.getMessages().get(index).getDate());
 						contenu.setTextContent(this.getMessages().get(index).getcontenu());
 
-						message.appendChild(destinataire);
+						message.appendChild(expediteur);
 						message.appendChild(date);
 						message.appendChild(contenu);
 						
@@ -71,7 +71,7 @@ public class BoiteMessagerie extends SalonDiscussion {
 			final TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			final Transformer transformer = transformerFactory.newTransformer();
 			final DOMSource source = new DOMSource(doc);
-			final StreamResult sortie = new StreamResult("XML.xml");
+			final StreamResult sortie = new StreamResult("./src/serveur/XML.xml");
 
 			transformer.setOutputProperty(OutputKeys.VERSION, "1.0");
 			transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
@@ -98,7 +98,7 @@ public class BoiteMessagerie extends SalonDiscussion {
 		try {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder p = dbFactory.newDocumentBuilder();
-			Document doc = p.parse("./src/XML.xml");
+			Document doc = p.parse("./src/serveur/XML.xml");
 
 			for (int i = 0; i < doc.getElementsByTagName("user").getLength(); i++) {
 

@@ -42,11 +42,12 @@ public class Messagerie extends UnicastRemoteObject implements _Messagerie {
 			for (int i = 0; i < this.annuaire.getContacts().size(); i++) {
 				if (this.annuaire.getContacts().get(i).getNom().equals(dest)) {
 					desti = this.annuaire.getContacts().get(i);
+					BoiteMessagerie btMsg = new BoiteMessagerie("boite" + desti.getNom(), desti);
+					btMsg.envoyerMessage(new MessageTexte(proprio, desti, msg));
+					btMsg.SaveMsg();
 				}
 			}
-			BoiteMessagerie btMsg = new BoiteMessagerie("boite" + desti.getNom(), desti);
-			btMsg.envoyerMessage(new MessageTexte(proprio, desti, msg));
-			btMsg.save();
+
 			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -55,14 +56,14 @@ public class Messagerie extends UnicastRemoteObject implements _Messagerie {
 
 	}
 	
-	public Contact getProprio(String proprio)
+	public Contact getProprio(String proprio) throws RemoteException
 	{
 		for (int i = 0; i < this.annuaire.getContacts().size(); i++) {
-			if (this.annuaire.getContacts().get(i).getNom().equals(proprio)) {
+			if (this.annuaire.getContacts().get(i).getLogin().equals(proprio)) {
 				return this.annuaire.getContacts().get(i);
 			}
 		}
-		throw new FrameworkException("propriétaire inconnu");
+		throw new FrameworkException("propriétaire inconnu2");
 	}
 
 }

@@ -109,7 +109,7 @@ public class Messagerie {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!list.isSelectionEmpty()) {
-					AffichageMessage affichageMessage = new AffichageMessage(messages.get(list.getSelectedIndex()));
+					AffichageMessage affichageMessage = new AffichageMessage(messages.get(list.getSelectedIndex()),ipServeur,reg,proprio);
 				}
 			}
 		});

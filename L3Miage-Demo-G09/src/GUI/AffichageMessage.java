@@ -12,8 +12,11 @@ import javax.swing.UIManager;
 import javax.swing.tree.DefaultTreeCellEditor.DefaultTextField;
 
 import Module_Messagerie.MessageTexte;
+import Structure_Contact.Contact;
+import sun.rmi.runtime.NewThreadAction;
 
 import java.awt.event.ActionListener;
+import java.rmi.registry.Registry;
 import java.awt.event.ActionEvent;
 
 public class AffichageMessage {
@@ -21,10 +24,16 @@ public class AffichageMessage {
 	private JFrame frame;
 	private MessageTexte message;
 
+	private String ipServeur;
+	private Registry reg;
+	private Contact proprio;
 	/**
 	 * Create the application.
 	 */
-	public AffichageMessage(MessageTexte msgTxt) {
+	public AffichageMessage(MessageTexte msgTxt,String ipServeur, Registry reg, Contact proprio) {
+		this.ipServeur=ipServeur;
+		this.reg=reg;
+		this.proprio=proprio;
 		this.message=msgTxt;
 		initialize();
 	}
@@ -99,6 +108,13 @@ public class AffichageMessage {
 		JButton btn_Repondre = new JButton("Repondre");
 		btn_Repondre.setBounds(26, 281, 100, 30);
 		frame.getContentPane().add(btn_Repondre);
+		btn_Repondre.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				EnvoiMessage envoiMessage = new EnvoiMessage(ipServeur, reg, proprio);
+			}
+		});
 		
 		JButton btn_Supprimer = new JButton("Supprimer");
 		btn_Supprimer.setBounds(196, 281, 100, 30);

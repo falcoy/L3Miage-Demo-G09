@@ -29,7 +29,7 @@ public class ServeurEvenement {
 			
 			Annuaire ann= new Annuaire();
 			ann.ajouterContact(new Contact("juntir", null, "juntir@inc.com","juntir1"));
-			ann.ajouterContact(new Contact("raj", null, "raj@inc.com","raj26"));			
+			ann.ajouterContact(new Contact("raj", null, "raj@inc.com","raj23"));			
 			ann.ajouterContact(new Contact("jerome", null, "jerome@inc.com","jeromeF"));
 			
 			Messagerie messagerieEvenement = new Messagerie(ann);

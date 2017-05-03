@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import FrameworkExceptions.FrameworkException;
 import Structure_Contact.Contact;
 import serveur.Messagerie;
 import serveur._Messagerie;
@@ -50,6 +51,14 @@ public class EnvoiMessage {
 		JButton btn_Retour = new JButton("Retour");
 		btn_Retour.setBounds(203, 323, 125, 35);
 		frame.getContentPane().add(btn_Retour);
+		btn_Retour.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				
+			}
+		});
 
 		JLabel lbl_MyEwine = new JLabel("My eWine");
 		lbl_MyEwine.setFont(new Font("Dialog", Font.BOLD, 16));
@@ -68,7 +77,7 @@ public class EnvoiMessage {
 		JTextField textField_ValeurFinanciere = new JTextField();
 		textField_ValeurFinanciere.setColumns(10);
 		textField_ValeurFinanciere.setBounds(133, 93, 150, 18);
-		frame.getContentPane().add(textField_ValeurFinanciere);
+		frame.getContentPane().add(textField_ValeurFinanciere);textField_ValeurFinanciere.setText(this.proprio.getNom());
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBorder(null);
@@ -101,11 +110,12 @@ public class EnvoiMessage {
 					Remote remote = reg.lookup("rmi://" + ipServeur + "/MessagerieEvenement");
 
 					if (remote instanceof _Messagerie) {
-						serveur.Messagerie messagerie = (Messagerie) remote;
-						messagerie.envoiMsg(proprio,textField.getText() , textArea_Message.getText());
+						((_Messagerie) remote).envoiMsg(proprio,textField.getText() , textArea_Message.getText());
+						frame.dispose();
 					}
 
 				} catch (Exception ex) {
+					new FrameworkException("envoi fail");
 					System.out.println(ex);
 				}
 			}

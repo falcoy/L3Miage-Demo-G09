@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <users>
   <user>
     <ID>1</ID>
@@ -9,17 +9,17 @@
     <mail>caravane_23@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>raj23</destinataire>
+    		<expediteur>raj23</expediteur>
     		<date>23052016</date>
     		<contenu>Bonjour. Hello.</contenu>
     	</message>
     	<message>
-    		<destinataire>raj23</destinataire>
+    		<expediteur>raj23</expediteur>
     		<date>23052016</date>
     		<contenu>Bonjour. Hello.</contenu>
     	</message>
     	<message>
-    		<destinataire>jeromeF</destinataire>
+    		<expediteur>jeromeF</expediteur>
     		<date>23062016</date>
     		<contenu>Test test</contenu>
     	</message>
@@ -34,10 +34,25 @@
     <mail>maison25@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>juntir1</destinataire>
+    		<expediteur>juntir1</expediteur>
     		<date>23052016</date>
     		<contenu>Bonjour</contenu>
     	</message>
+    <message>
+        <expediteur>raj</expediteur>
+        <date>Wed May 03 14:14:49 CEST 2017</date>
+        <contenu>sfqsfsd</contenu>
+      </message>
+    <message>
+        <expediteur>raj</expediteur>
+        <date>Wed May 03 14:41:59 CEST 2017</date>
+        <contenu>coucu</contenu>
+      </message>
+    <message>
+        <expediteur>juntir</expediteur>
+        <date>Wed May 03 14:44:09 CEST 2017</date>
+        <contenu>dddd</contenu>
+      </message>
     </messages>
   </user>
   <user>
@@ -49,7 +64,7 @@
     <mail>francois.marcel@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>juntir1</destinataire>
+    		<expediteur>juntir1</expediteur>
     		<date>24052016</date>
     		<contenu>Moi aussi</contenu>
     	</message>
@@ -64,7 +79,7 @@
     <mail>taric.past@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>raj23</destinataire>
+    		<expediteur>raj23</expediteur>
     		<date>26052016</date>
     		<contenu>Un mot Une phrase</contenu>
     	</message>
@@ -79,7 +94,7 @@
     <mail>antique_machine@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>taricPast</destinataire>
+    		<expediteur>taricPast</expediteur>
     		<date>24052016</date>
     		<contenu>Phrase de test</contenu>
     	</message>
@@ -94,7 +109,7 @@
     <mail>sorcier_tomg@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>raj23</destinataire>
+    		<expediteur>raj23</expediteur>
     		<date>24052016</date>
     		<contenu>Tu es un sorcier Raj</contenu>
     	</message>
@@ -109,7 +124,7 @@
     <mail>max26_drome@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>tomG</destinataire>
+    		<expediteur>tomG</expediteur>
     		<date>24052016</date>
     		<contenu>Moi aussi ?</contenu>
     	</message>
@@ -124,7 +139,7 @@
     <mail>yannrally@postal.fr</mail>
     <messages>
     	<message>
-    		<destinataire>maximax</destinataire>
+    		<expediteur>maximax</expediteur>
     		<date>30052016</date>
     		<contenu>Need PO</contenu>
     	</message>
