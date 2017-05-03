@@ -68,13 +68,13 @@ public class AffichageMessage {
 		
 		JLabel lbl_Expediteur = new JLabel("Expediteur");
 		lbl_Expediteur.setFont(new Font("Dialog", Font.BOLD, 14));
-		lbl_Expediteur.setBounds(41, 94, 88, 14);
+		lbl_Expediteur.setBounds(42, 117, 88, 14);
 		frame.getContentPane().add(lbl_Expediteur);
 		
 		JTextField textField_ValeurFinanciere = new JTextField();
 		textField_ValeurFinanciere.setEditable(false);
 		textField_ValeurFinanciere.setColumns(10);
-		textField_ValeurFinanciere.setBounds(133, 93, 150, 18);
+		textField_ValeurFinanciere.setBounds(134, 116, 150, 18);
 		frame.getContentPane().add(textField_ValeurFinanciere);textField_ValeurFinanciere.setText(this.message.getExpediteur().getNom());
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -89,24 +89,13 @@ public class AffichageMessage {
 		textArea_Message.setLineWrap(true);
 		textArea_Message.setText(this.message.getcontenu());
 		
-		JLabel lbl_Destinataire = new JLabel("Destinataire");
-		lbl_Destinataire.setFont(new Font("Dialog", Font.BOLD, 14));
-		lbl_Destinataire.setBounds(41, 120, 88, 14);
-		frame.getContentPane().add(lbl_Destinataire);
-		
-		JTextField textField = new JTextField();
-		textField.setEditable(false);
-		textField.setColumns(10);
-		textField.setBounds(133, 119, 150, 18);
-		frame.getContentPane().add(textField);textField.setText(this.message.getDestinataire().getNom());
-		
 		JLabel lbl_Message = new JLabel("Message");
 		lbl_Message.setFont(new Font("Dialog", Font.BOLD, 14));
 		lbl_Message.setBounds(20, 146, 88, 14);
 		frame.getContentPane().add(lbl_Message);
 
 		JButton btn_Repondre = new JButton("Repondre");
-		btn_Repondre.setBounds(26, 281, 100, 30);
+		btn_Repondre.setBounds(117, 281, 100, 30);
 		frame.getContentPane().add(btn_Repondre);
 		btn_Repondre.addActionListener(new ActionListener() {
 			
@@ -115,10 +104,6 @@ public class AffichageMessage {
 				EnvoiMessage envoiMessage = new EnvoiMessage(ipServeur, reg, proprio);
 			}
 		});
-		
-		JButton btn_Supprimer = new JButton("Supprimer");
-		btn_Supprimer.setBounds(196, 281, 100, 30);
-		frame.getContentPane().add(btn_Supprimer);
 		
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

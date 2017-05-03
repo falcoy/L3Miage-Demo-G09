@@ -12,6 +12,7 @@ public class Connexion {
 	{
 		this.authentfication = auth;
 	}
+	
 	public boolean connexion(String identifiant, String motDePasse)
 	{		
 		try {

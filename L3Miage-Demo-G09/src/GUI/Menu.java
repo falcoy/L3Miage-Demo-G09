@@ -38,7 +38,7 @@ public class Menu {
 			Remote remote = reg.lookup("rmi://" + ipServeur + "/MessagerieEvenement");
 
 			if (remote instanceof _Messagerie) {
-				this.proprio=((_Messagerie) remote).getProprio(loginProprio);
+				this.proprio = ((_Messagerie) remote).getProprio(loginProprio);
 			}
 		} catch (Exception ex) {
 			System.out.println(ex);
@@ -90,7 +90,8 @@ public class Menu {
 					Remote remote = reg.lookup("rmi://" + ipServeur + "/RechercheEvenement");
 
 					if (remote instanceof _RechercheEvenement) {
-						RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg, new serveur.RechercheEvenement(), proprio.getLogin());
+						RechercheEvenement rechercheEvenement = new RechercheEvenement(ipServeur, reg,
+								new serveur.RechercheEvenement(), proprio.getLogin());
 					}
 					frame.dispose();
 				} catch (Exception ex) {
@@ -121,15 +122,18 @@ public class Menu {
 		btn_ConsulterMaMessagerie.setBounds(20, 190, 300, 50);
 		frame.getContentPane().add(btn_ConsulterMaMessagerie);
 
-		JButton btn_Deconnexion = new JButton("Deconnexion");
-		btn_Deconnexion.addActionListener(new ActionListener() {
+		JButton btn_Quitter = new JButton("Quitter");
+		btn_Quitter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PageAuthentification pageAuth = new PageAuthentification(null, ipServeur, reg);
-				frame.dispose();
+				try {
+					frame.dispose();
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
 			}
 		});
-		btn_Deconnexion.setBounds(201, 320, 125, 35);
-		frame.getContentPane().add(btn_Deconnexion);
+		btn_Quitter.setBounds(201, 320, 125, 35);
+		frame.getContentPane().add(btn_Quitter);
 
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

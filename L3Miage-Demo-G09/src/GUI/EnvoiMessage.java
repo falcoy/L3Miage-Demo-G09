@@ -69,16 +69,6 @@ public class EnvoiMessage {
 		lbl_EnvoiMessage.setBounds(117, 51, 130, 14);
 		frame.getContentPane().add(lbl_EnvoiMessage);
 
-		JLabel lbl_Expediteur = new JLabel("Expediteur");
-		lbl_Expediteur.setFont(new Font("Dialog", Font.BOLD, 14));
-		lbl_Expediteur.setBounds(41, 94, 88, 14);
-		frame.getContentPane().add(lbl_Expediteur);
-
-		JTextField textField_ValeurFinanciere = new JTextField();
-		textField_ValeurFinanciere.setColumns(10);
-		textField_ValeurFinanciere.setBounds(133, 93, 150, 18);
-		frame.getContentPane().add(textField_ValeurFinanciere);textField_ValeurFinanciere.setText(this.proprio.getNom());
-
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBorder(null);
 		scrollPane.setBounds(20, 170, 300, 141);
